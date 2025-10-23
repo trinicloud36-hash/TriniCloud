@@ -3,11 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Platform | Build Smarter with AI</title>
-    <meta name="description" content="Transform your workflow with powerful AI features">
-    <link rel="stylesheet" href="/styles.css">
+    <title>TriniCloud | Free, Fast, Solo-Built AI</title>
+    <meta name="description" content="Deploy your AI platform in 8 minutes with Cloudflare's free tier. No credit card, no VMs, no hidden fees.">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="TriniCloud">
+    <meta property="og:description" content="Free, fast, solo-built AI platform with no credit card required.">
+    <meta property="og:image" content="https://trinicloud.pages.dev/og-image.jpg">
+    
+    <!-- PWA -->
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#6366f1">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
     <header class="header">
@@ -15,6 +26,7 @@
             <div class="nav-actions">
                 <button class="btn btn-outline">Sign In</button>
                 <button class="btn btn-primary">Get Started</button>
+                <!-- theme toggle (JS will persist) -->
                 <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme"></button>
             </div>
             <button class="nav-toggle" id="navToggle" 
@@ -36,23 +48,129 @@
             <!-- Hero content -->
         </section>
 
+        <section class="diagram animate-on-scroll" id="diagram">
+            <div class="container">
+                <h2 class="section-title">How TriniCloud Works</h2>
+                <p class="section-description">Visualize the flow of your AI-powered threat monitoring system.</p>
+                <div class="diagram-container">
+                    <!-- Excalidraw SVG placeholder (replace with exported SVG) -->
+                    <svg class="heartbeat" width="360" height="220" viewBox="0 0 360 220" fill="none" role="img" aria-label="Architecture diagram showing Workers, Pages, and D1">
+                        <rect x="8" y="8" width="344" height="204" fill="#f8fafc" stroke="#6366f1" stroke-width="2" rx="8"/>
+                        <text x="50%" y="50%" text-anchor="middle" fill="#111827" font-size="14">Excalidraw Diagram Placeholder</text>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
         <section class="features" id="features">
             <div class="features-grid">
                 <div class="feature-card animate-on-scroll" 
                      tabindex="0" 
                      role="button"
-                     aria-label="Learn more about Lightning Fast feature">
+                     aria-label="Learn more about Zero Cost feature">
                     <!-- Feature card content -->
+                </div>
+            </div>
+        </section>
+
+        <!-- User Management Section -->
+        <section class="users" id="users">
+          <div class="container">
+            <h2 class="section-title">User Management</h2>
+            
+            <div id="userFilters" class="filters">
+              <select name="role" aria-label="Filter by role">
+                <option value="">All roles</option>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+              </select>
+              <input type="search" name="search" 
+                     placeholder="Search users..." 
+                     aria-label="Search users">
+            </div>
+
+            <table id="usersTable" class="users-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Created</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- AI Tool Drawer Section -->
+        <section class="tools" id="aiTools">
+            <div class="container">
+                <div class="card">
+                    <div class="card-header" onclick="toggleCard('aiTools')">
+                        <h2 class="section-title">Free AI Playground</h2>
+                        <span class="toggle-icon"></span>
+                    </div>
+                    <div class="card-content">
+                        <p class="section-description">
+                            Tired of locked models and AI taxes? These are <strong>real tools</strong> – 
+                            free tiers, no strings. Click, play, build. Stay free, stay TT.
+                        </p>
+                        <div class="tool-grid">
+                            <!-- Tool cards here - collapsed for brevity -->
+                            <div class="tool-mini-card">
+                                <h3>Perplexity AI</h3>
+                                <p>Sharp AI search engine – real-time answers, no fluff. Free queries.</p>
+                                <a href="https://www.perplexity.ai/" target="_blank" class="btn-mini">Launch Perplexity</a>
+                            </div>
+                            <!-- Add more tool cards as needed -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud Horror Stories Lead Magnet -->
+                <div id="horror-gate" class="card">
+                    <div class="card-header" onclick="toggleCard('horror-gate')">
+                        <h2>Free: "Cloud Bill Horror Stories" PDF</h2>
+                        <span class="toggle-icon"></span>
+                    </div>
+                    <div class="card-content">
+                        <form id="emailGate" class="email-gate">
+                            <input type="email" placeholder="your@startup.com" required>
+                            <button type="submit" class="btn-mini">Send Me the PDF</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Live Savings Banner -->
+                <div id="savings-banner" class="savings-banner">
+                    <strong>You save <span id="saved-amount">$0.00</span>/mo</strong> vs. AWS
+                    <small>Live price check via TriniCloud OPAL</small>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <!-- Footer content -->
-        <p>&copy; <span id="year"></span> AI Platform</p>
+        <p>&copy; <span id="year"></span> TriniCloud</p>
     </footer>
 
+    <!-- Core scripts - order matters -->
+    <script>
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then(reg => console.log('SW registered:', reg.scope))
+                .catch(err => console.warn('SW registration failed:', err));
+        });
+    }
+    </script>
+    
+    <!-- App scripts in dependency order -->
     <script src="/script.js" defer></script>
+    <script src="/js/tools.js" defer></script>
+    <script src="/js/savings.js" defer></script>
+    <script src="/js/users.js" defer></script>
 </body>
 </html>

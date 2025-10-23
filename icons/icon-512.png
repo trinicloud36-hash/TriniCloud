@@ -1,0 +1,2 @@
+convert -size 512x512 xc:#6366f1 -gravity center -pointsize 240 -fill white \
+        -draw "text 0,0 'TC'" /workspaces/TriniCloud/icons/icon-512.png

@@ -1,0 +1,42 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# testing
+coverage
+
+# build
+dist
+.wrangler
+.dev.vars
+
+# env files
+.env
+.env.*
+!.env.example
+
+# misc
+.DS_Store
+*.pem
+.vscode
+.idea
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# cloudflare
+.cloudflare
+
+# python
+*.pyc
+__pycache__/
+
+# e91
+e91_core.py
+lossy_detector.py
+test_final.py
+demo_corrected.py
+FINAL_SUMMARY.md

@@ -1,0 +1,6 @@
+# Create icons directory if it doesn't exist
+mkdir -p /workspaces/TriniCloud/icons
+
+# Use ImageMagick to create a simple placeholder icon
+convert -size 32x32 xc:#6366f1 -gravity center -pointsize 20 -fill white \
+        -draw "text 0,0 'TC'" /workspaces/TriniCloud/icons/icon-32.png

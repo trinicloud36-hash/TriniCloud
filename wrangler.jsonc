@@ -1,0 +1,32 @@
+{
+  "name": "trinicloud",
+  "main": "src/worker/index.ts",
+  "compatibility_date": "2025-10-23",
+  "keep_vars": true,
+  "assets": {
+    "directory": "./dist"
+  },
+  "vars": {
+    "ENV": "production",
+    "GITHUB_CALLBACK_URL": "https://trinicloud.pages.dev/api/auth/callback"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "trinicloud-db",
+      "database_id": "__D1_ID__"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "SESSIONS",
+      "id": "__KV_ID__"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "STORAGE",
+      "bucket_name": "trinicloud-files"
+    }
+  ]
+}

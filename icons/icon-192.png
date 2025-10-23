@@ -1,0 +1,2 @@
+convert -size 192x192 xc:#6366f1 -gravity center -pointsize 100 -fill white \
+        -draw "text 0,0 'TC'" /workspaces/TriniCloud/icons/icon-192.png
